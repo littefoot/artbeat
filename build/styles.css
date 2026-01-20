@@ -478,11 +478,33 @@ img {
 }
 
 .btn-primary {
-    background-color: #000;
+    background-color: var(--color-accent);
     color: #fff;
-    border: 1px solid #000;
-    flex: 1;
-    /* Match 50% width */
+    border: 1px solid var(--color-accent);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-text-main);
+    border: 1px solid #E5E5E5;
+    min-width: 200px;
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-accent);
+    background-color: #FAFAFA;
+}
+
+background-color: #000;
+color: #fff;
+border: 1px solid #000;
+flex: 1;
+/* Match 50% width */
 }
 
 .btn-primary:hover {

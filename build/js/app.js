@@ -1,68 +1,78 @@
 /**
  * Artbeat Dynamic Shop Logic
- * Fetches products from Firebase Cloud Functions (Stripe) and renders them.
+ * Fetches products from Firebase Cloud Functions and handles client-side pagination.
  */
 
-// Replace with your actual Project ID based URL after deployment
-// For now, we'll try to determine it dynamically or default to the standard Firebase format
 const PROJECT_ID = 'artbeat-shop';
 const REGION = 'us-central1';
+// const API_URL = `http://127.0.0.1:5001/${PROJECT_ID}/${REGION}/getProducts`; // Local Testing
 const API_URL = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net/getProducts`;
+
+// State
+let allProducts = [];
+let visibleCount = 0;
+const BATCH_SIZE = 9;
 
 document.addEventListener('DOMContentLoaded', () => {
     const galleryGrid = document.querySelector('.gallery-grid');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreContainer = document.querySelector('.load-more-container');
 
     // Check if we are on the home page with a gallery grid
     if (galleryGrid) {
-        fetchProducts(galleryGrid);
+        fetchProducts(galleryGrid, loadMoreContainer, loadMoreBtn);
+    }
+
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            renderNextBatch(galleryGrid, loadMoreContainer, loadMoreBtn);
+        });
     }
 });
 
-async function fetchProducts(container) {
+async function fetchProducts(container, btnContainer, btn) {
     try {
-        // Show loading state (optional, or just keep placeholder content until load)
         console.log('Fetching products from:', API_URL);
-
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error('Failed to fetch products');
 
         const { data } = await response.json();
 
         if (data && data.length > 0) {
-            renderGallery(container, data);
+            allProducts = data;
+            // Clear static loading placeholders
+            container.innerHTML = '';
+            // Render first batch
+            renderNextBatch(container, btnContainer, btn);
         } else {
-            console.log('No active products found in Stripe.');
-            // Optionally handle empty state
+            console.log('No active products found.');
+            container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No works currently available.</p>';
         }
     } catch (error) {
         console.error('Error loading products:', error);
-        // Fallback: The static HTML placeholders will remain visible if we don't clear them
-        // or we can show an error toast.
     }
 }
 
-function renderGallery(container, products) {
-    // Clear static placeholders
-    container.innerHTML = '';
+function renderNextBatch(container, btnContainer, btn) {
+    const total = allProducts.length;
+    const nextLimit = visibleCount + BATCH_SIZE;
+    const batch = allProducts.slice(visibleCount, nextLimit);
 
-    products.forEach((product, index) => {
+    batch.forEach((product, index) => {
         // Create Card
         const article = document.createElement('article');
         article.className = 'artwork-card';
-        article.style.animationDelay = `${index * 0.1}s`; // Stagger animation
+        // Fade in animation
+        article.style.animation = `fadeUp 0.6s ease forwards ${index * 0.1}s`;
+        article.style.opacity = '0'; // Start invisible for animation
 
-        // Image
-        const imageSrc = product.images[0] || 'assets/art1.png'; // Fallback
+        // Image Fallback
+        const imageSrc = product.images[0] || 'assets/art1.png';
 
-        // Price Formatting
+        // Metadata
         const priceDisplay = product.price ? product.price.formatted : 'Enquire';
-
-        // Dimensions/Specs from Metadata or Description
-        // Assuming metadata has 'dimensions' or we parse it from description
         const dimensions = product.metadata.dimensions || 'Dimensions TBD';
         const medium = product.metadata.medium || 'Print';
-
-        // Artist (Default to Romel if not specified)
         const artist = product.metadata.artist || 'Romel';
 
         article.innerHTML = `
@@ -81,4 +91,16 @@ function renderGallery(container, products) {
 
         container.appendChild(article);
     });
+
+    // Update count
+    visibleCount = nextLimit;
+
+    // Toggle Button Visibility
+    if (visibleCount >= total) {
+        btnContainer.style.display = 'none';
+        // Optional: btn.disabled = true;
+    } else {
+        btnContainer.style.display = 'block';
+        btn.textContent = 'Load More';
+    }
 }
