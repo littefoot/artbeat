@@ -874,6 +874,11 @@ flex: 1;
         position: static;
         padding-left: 0;
     }
+
+    .hero-subtitle {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
 }
 
 /* Variation Select Styling */
