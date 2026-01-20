@@ -841,6 +841,22 @@ flex: 1;
         padding-top: 2rem;
     }
 
+    /* Mobile Header Fix - Force Stack */
+    .header-inner {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        padding-bottom: 1rem;
+        height: auto !important;
+    }
+
+    .nav-center {
+        position: static !important;
+        transform: none !important;
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+
     /* Product Page Mobile Fix */
     .product-layout {
         display: flex;
@@ -856,7 +872,32 @@ flex: 1;
     .product-details {
         width: 100%;
         position: static;
+        padding-left: 0;
     }
+}
+
+/* Variation Select Styling */
+.variation-select {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    /* Space below it */
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.product-actions {
+    flex-wrap: wrap;
+    /* Allow wrapping */
+}
+
+/* Ensure wrapper takes full width row */
+.variation-wrapper {
+    flex-basis: 100%;
+    width: 100%;
 }
 
 /* Update nav active state */
