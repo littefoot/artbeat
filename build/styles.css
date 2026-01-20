@@ -840,7 +840,23 @@ flex: 1;
         border-top: 1px solid rgba(0, 0, 0, 0.05);
         padding-top: 2rem;
     }
-}
+
+    /* Product Page Mobile Fix */
+    .product-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .product-image-wrapper {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .product-details {
+        width: 100%;
+        position: static;
+    }
 }
 
 /* Update nav active state */
