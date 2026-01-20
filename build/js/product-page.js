@@ -125,6 +125,7 @@ function renderProduct(product) {
             customLink.style.display = "flex";
             customLink.style.width = "100%";
             customLink.style.marginTop = "1rem";
+            customLink.style.marginBottom = "2rem"; // Add breathing room
             customLink.style.textAlign = "center";
             customLink.style.justifyContent = "center";
 
