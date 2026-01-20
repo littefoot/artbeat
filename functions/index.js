@@ -154,7 +154,7 @@ exports.sendContactEmail = functions.https.onRequest((req, res) => {
           subject: `Website Inquiry: ${name}`,
           from: 'noreply@artbeat-shop.web.app',
           fromName: 'Artbeat Website',
-          to: 'jaredabt@gmail.com', // Test Recipient
+          to: 'lemoralexis@gmail.com', // Artbeat Owner
           bodyHtml: `
             <div style="font-family: sans-serif; padding: 20px;">
                 <h2>New Message from Artbeat Contact Form</h2>
