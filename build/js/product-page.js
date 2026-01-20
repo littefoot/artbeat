@@ -120,14 +120,13 @@ function renderProduct(product) {
             const customLink = document.createElement('a');
             customLink.href = "#contact";
             customLink.textContent = "Contact the artist for custom orders";
-            customLink.className = "custom-order-link";
-            customLink.style.display = "block";
+            customLink.className = "custom-order-link btn btn-secondary"; // Use existing button classes
+            // Reset some button styles to fit full width below
+            customLink.style.display = "flex";
+            customLink.style.width = "100%";
             customLink.style.marginTop = "1rem";
-            customLink.style.fontSize = "0.9rem";
-            customLink.style.textDecoration = "underline";
-            customLink.style.color = "#666";
             customLink.style.textAlign = "center";
-            customLink.style.cursor = "pointer";
+            customLink.style.justifyContent = "center";
 
             // Wire up to existing global modal logic (via hash or click)
             customLink.addEventListener('click', (e) => {
