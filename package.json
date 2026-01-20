@@ -1,0 +1,10 @@
+{
+    "name": "artbeat-shop",
+    "version": "1.0.0",
+    "description": "Artbeat E-commerce",
+    "scripts": {
+        "dev": "firebase serve --only hosting,functions",
+        "deploy": "firebase deploy"
+    },
+    "dependencies": {}
+}

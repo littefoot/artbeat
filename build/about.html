@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Romel | ARTBEAT</title>
+
+    <!-- Google Fonts: Josefin Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.svg" alt="ARTBEAT">
+                </a>
+            </div>
+
+            <nav class="nav-center">
+                <a href="index.html" class="nav-link">Browse</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-right">
+                <a href="https://buy.stripe.com" class="nav-link">Customer Portal</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Content -->
+    <main class="about-page">
+        <div class="container">
+
+            <div class="about-hero-section">
+                <div class="about-image-wrapper">
+                    <img src="assets/about-hero.png" alt="Artbeat Identity">
+                </div>
+            </div>
+
+            <div class="about-content-wrapper">
+
+                <section class="about-block">
+                    <span class="section-label">The Artist</span>
+                    <h1 class="about-heading">ROMEL</h1>
+                    <p class="about-text-lead">
+                        Romel is an artist whose work functions as a living archive. Shaped by travel and lived
+                        experience, his practice creates images that exist between structure and intuition.
+                    </p>
+                    <p class="about-text">
+                        With a deep connection to his Caribbean roots, the Dominican Republic became the point of
+                        return—a place that defined Artbeat as a quiet search for home, where the colours and textures
+                        of its people revealed the weight of what art can hold.
+                    </p>
+                </section>
+
+                <section class="about-block">
+                    <span class="section-label">The Process</span>
+                    <p class="about-text">
+                        Each piece of art begins as a real-world story. An image captured in the moment—on the streets
+                        of Europe or the coasts of the Caribbean—then reimagined.
+                    </p>
+                    <p class="about-text">
+                        Working across photography, painting, and digital intervention, Romel acts as an observer using
+                        visual notes. These are not just aesthetic decisions; they mirror how memory forms. Incomplete,
+                        textured, and shaped by attention. The image is held long enough to be felt, allowing form and
+                        light to carry meaning without explanation.
+                    </p>
+                </section>
+
+                <section class="about-block">
+                    <span class="section-label">Philosophy</span>
+                    <h2 class="about-subheading">Bold without breaking the vow of care.</h2>
+                    <p class="about-text">
+                        In a world of noise, Artbeat offers a pause. It is not about trend or spectacle, but about
+                        noticing.
+                    </p>
+                    <p class="about-text">
+                        We value the balance between discipline and intuition. Romel stands behind the work not to
+                        define its meaning, but to protect the space where it exists. As collectors, we do not just
+                        acquire an image; we become part of an ongoing record—a shared responsibility to honour the
+                        story it tells.
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Studio Location</h4>
+                    <p>123 Artbeat Avenue</p>
+                    <p>Toronto, Ontario M5V 2H1</p>
+                    <br>
+                    <a href="tel:+14378558660">(+1) 437 855 8660</a>
+                    <a href="#">Get directions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Open Hours</h4>
+                    <p>Mon - Fri: 10am - 6pm</p>
+                    <p>Sat: 11am - 5pm</p>
+                    <p>Sun: Closed</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="credits">
+                    <span>&copy; 2026 ARTBEAT</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <form id="contact-form" class="contact-form">
+                <h2>Contact Us</h2>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" required placeholder="How can we help?"></textarea>
+                </div>
+                <div class="g-recaptcha" data-sitekey="6Le131AsAAAAAG8ekJDmdbz27B_3ettGA_QYeCfi"
+                    style="margin-bottom: 1.5rem;"></div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+</body>
+
+</html>

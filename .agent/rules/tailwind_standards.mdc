@@ -1,0 +1,32 @@
+---
+description: Standards for Tailwind CSS architecture, class ordering, and formatting.
+globs: **/*.html, **/*.jsx, **/*.tsx, **/*.js, **/*.ts, **/*.css
+alwaysApply: true
+---
+# Tailwind CSS Architectural Standards
+
+Trigger: Whenever the agent generates HTML, JSX, or Tailwind CSS classes.
+
+Instruction Payload:
+
+"Apply the 'Logical Grouping' protocol to all Tailwind CSS class strings. You must organize classes in the following strict sequence:
+
+Layout & Positioning: (display, position, z-index, flex/grid config)
+
+Box Model: (width/height, margin, padding)
+
+Typography: (font-size, weight, alignment, color)
+
+Visuals: (backgrounds, borders, shadows, opacity)
+
+State Modifiers: (hover:, focus:, active:)
+
+Responsive Breakpoints: (sm:, md:, lg:, xl:)
+
+Formatting Constraints:
+
+Use standard Tailwind scale values; avoid arbitrary -[value] syntax unless explicitly instructed.
+
+For components with >8 classes, prioritize the Official Tailwind Prettier sorting logic.
+
+Add semantic HTML comments `` above every distinct UI block to ensure structural clarity."
