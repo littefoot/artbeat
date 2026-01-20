@@ -110,9 +110,34 @@ function renderProduct(product) {
 
         // Initial State
         priceEl.textContent = selectedPrice.formatted;
-        buyBtn.textContent = "Add to Cart";
+        buyBtn.textContent = "Order Now";
         buyBtn.onclick = () => initiateCheckout(selectedPrice.id);
         buyBtn.disabled = false; // Enable button
+
+        // Add "Contact the artist for custom orders" link if not already present
+        const existingCustomLink = document.querySelector('.custom-order-link');
+        if (!existingCustomLink) {
+            const customLink = document.createElement('a');
+            customLink.href = "#contact";
+            customLink.textContent = "Contact the artist for custom orders";
+            customLink.className = "custom-order-link";
+            customLink.style.display = "block";
+            customLink.style.marginTop = "1rem";
+            customLink.style.fontSize = "0.9rem";
+            customLink.style.textDecoration = "underline";
+            customLink.style.color = "#666";
+            customLink.style.textAlign = "center";
+            customLink.style.cursor = "pointer";
+
+            // Wire up to existing global modal logic (via hash or click)
+            customLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modal = document.getElementById('contact-modal');
+                if (modal) modal.classList.add('active');
+            });
+
+            actionsDiv.after(customLink);
+        }
     } else {
         priceEl.textContent = "Enquire for Price";
         buyBtn.textContent = "Enquire Now";
