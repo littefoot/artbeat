@@ -877,6 +877,32 @@ flex: 1;
 }
 
 /* Variation Select Styling */
+.variation-selector-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.variation-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+}
+
+.variation-option:hover {
+    color: var(--color-text-main);
+}
+
+.variation-option input[type="radio"] {
+    margin-right: 0.75rem;
+    accent-color: var(--color-accent);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .variation-select {
     display: block;
     width: 100%;

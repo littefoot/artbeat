@@ -68,44 +68,46 @@ function renderProduct(product) {
     const actionsDiv = document.querySelector('.product-actions');
 
     // Remove existing selector if any (re-render safety)
-    const existingSelect = document.querySelector('.variation-select');
-    if (existingSelect) existingSelect.remove();
+    const existingContainer = document.querySelector('.variation-selector-container');
+    if (existingContainer) existingContainer.remove();
 
     if (product.prices && product.prices.length > 0) {
         let selectedPrice = product.prices[0];
 
         // If multiple variations, create dropdown
         if (product.prices.length > 1) {
-            const select = document.createElement('select');
-            select.className = 'variation-select btn-outline'; // Reuse outline style roughly
-            select.style.flex = '1';
-            select.style.marginRight = '1rem';
-            select.style.padding = '0 1rem';
-            select.style.height = '50px';
-            select.style.cursor = 'pointer';
-            select.style.border = '1px solid #E5E5E5';
-            select.style.borderRadius = '6px';
-            select.style.backgroundColor = 'transparent';
-            select.style.fontSize = '0.95rem';
-            select.style.fontFamily = 'inherit';
+            const variationContainer = document.createElement('div');
+            variationContainer.className = 'variation-selector-container';
+            variationContainer.style.marginBottom = '1.5rem';
+            variationContainer.style.width = '100%';
 
-            product.prices.forEach(p => {
-                const opt = document.createElement('option');
-                opt.value = p.id;
-                opt.textContent = `${p.nickname} - ${p.formatted}`;
-                select.appendChild(opt);
+            product.prices.forEach((p, index) => {
+                const label = document.createElement('label');
+                label.className = 'variation-option';
+
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.name = 'product-variation';
+                input.value = p.id;
+                if (index === 0) input.checked = true;
+
+                const span = document.createElement('span');
+                span.textContent = `${p.nickname} - ${p.formatted}`;
+
+                label.appendChild(input);
+                label.appendChild(span);
+                variationContainer.appendChild(label);
+
+                // Handle Change
+                input.onchange = () => {
+                    selectedPrice = p;
+                    priceEl.textContent = selectedPrice.formatted;
+                    buyBtn.onclick = () => initiateCheckout(selectedPrice.id);
+                };
             });
 
-            // Handle Change
-            select.onchange = (e) => {
-                const newPriceId = e.target.value;
-                selectedPrice = product.prices.find(p => p.id === newPriceId);
-                priceEl.textContent = selectedPrice.formatted;
-                buyBtn.onclick = () => initiateCheckout(selectedPrice.id);
-            };
-
             // Insert before buttons
-            actionsDiv.prepend(select);
+            actionsDiv.prepend(variationContainer);
         }
 
         // Initial State
