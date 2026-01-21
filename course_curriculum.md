@@ -77,7 +77,7 @@ This course takes you from zero coding knowledge to deploying a high-end, fully 
 *   **Topic:** Initializing the Firebase project.
 *   **Action Items:**
     *   Run `firebase login`.
-    *   Run `firebase init` (Select Hosting & Functions).
+    *   Run `firebase init` (Select **Hosting** and **Functions** only; use spacebar to select/deselect).
 
 ### Lesson 2.2: Connecting the Wires
 *   **Topic:** Environment Variables.
@@ -100,7 +100,9 @@ This course takes you from zero coding knowledge to deploying a high-end, fully 
 
 ### Lesson 3.2: Fetching Data
 *   **Topic:** Pulling products from Stripe.
-*   **Action Items:** Write the `getProducts` function using the Stripe SDK.
+*   **Action Items:**
+    *   Write the `getProducts` function using the Stripe SDK.
+    *   **Crucial:** Implement filtering logic to exclude special items (like "Site Content") from the main gallery.
 
 ### Lesson 3.3: Secure Transactions
 *   **Topic:** Handling the "Buy" button.
@@ -160,3 +162,11 @@ This course takes you from zero coding knowledge to deploying a high-end, fully 
 ### Lesson 6.3: Client Handoff
 *   **Topic:** Training the collection owner.
 *   **Action Items:** Set up the **Stripe Customer Portal** so they can manage their own orders and products.
+
+### Lesson 6.4: Stripe as CMS (Bonus)
+*   **Topic:** Managing site content without code.
+*   **Action Items:**
+    *   Create a "Site Content" product in Stripe (not for sale).
+    *   Use the **Metadata** fields to store text (e.g., `hero_title`, `announcement_bar`).
+    *   Update your frontend to fetch this product separately and inject the text into your HTML.
+    *   **Reminder:** Ensure this product is filtered out of your main gallery grid (see Lesson 3.2).
