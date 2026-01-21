@@ -204,3 +204,7 @@ body {
 2.  **Styles:** Implement `index.css` with the variables above.
 3.  **Components:** Build `Header`, `Footer`, `ProductCard`, `ProductDetail`.
 4.  **Content:** Populate with Romel's bio and placeholder images.
+
+## 8. Inspiration
+
+https://tunbridgegallery.com.au/
