@@ -32,10 +32,11 @@ This course takes you from zero coding knowledge to deploying a high-end, fully 
         *   **Copy Deck:** A simple text file with your Bio, Tagline, and Shipping Policy.
 
 ### Lesson 0.4: The Bank (Stripe)
-*   **Topic:** Setting up the payment gateway.
+*   **Topic:** Setting up the payment gateway & database.
 *   **Action Items:**
     *   Create a verified [Stripe](https://stripe.com) account.
     *   **Product Catalogue:** Create 3-5 products inside the Stripe Dashboard. Add images, descriptions, and prices directly there.
+    *   **The Golden Backup:** Create a "Master Inventory" Google Sheet. If Stripe ever goes down or you switch platforms, you lose your data. Maintain a spreadsheet with columns: *Name, Price, Description, Image_Filename, Metadata*.
 
 ### Lesson 0.5: The Postman (Elastic Email)
 *   **Topic:** Setting up the email service.
