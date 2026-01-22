@@ -20,7 +20,65 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 2. Fetch Data
     await loadProduct(productId);
+
+    // 3. Setup Lightbox
+    setupLightbox();
 });
+
+function setupLightbox() {
+    // Create Lightbox DOM if not exists
+    if (!document.querySelector('.lightbox-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        overlay.innerHTML = `
+            <button class="lightbox-close">&times;</button>
+            <div class="lightbox-content">
+                <img src="" alt="Zoomed view">
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        // Close events
+        const closeBtn = overlay.querySelector('.lightbox-close');
+
+        const closeLightbox = () => {
+            overlay.classList.remove('active');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300); // Wait for transition
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeLightbox();
+        });
+
+        // Escape key close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
+
+    // Attach click to main product image
+    const mainImg = document.querySelector('.product-image-wrapper img');
+    if (mainImg) {
+        mainImg.addEventListener('click', () => {
+            if (!mainImg.src) return;
+
+            const overlay = document.querySelector('.lightbox-overlay');
+            const lightboxImg = overlay.querySelector('.lightbox-content img');
+
+            lightboxImg.src = mainImg.src;
+            overlay.style.display = 'flex';
+            // Force reflow for transition
+            requestAnimationFrame(() => {
+                overlay.classList.add('active');
+            });
+        });
+    }
+}
 
 async function loadProduct(id) {
     try {
