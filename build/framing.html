@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framing Options | ARTBEAT</title>
+
+    <!-- Google Fonts: Josefin Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.svg" alt="ARTBEAT">
+                </a>
+            </div>
+
+            <nav class="nav-center">
+                <a href="index.html" class="nav-link">Browse</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="framing.html" class="nav-link active">Framing</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+
+        </div>
+    </header>
+
+    <!-- Framing Content -->
+    <main class="about-page">
+        <div class="container">
+
+            <div class="about-hero-section">
+                <div class="about-image-wrapper">
+                    <img src="assets/framing_example.webp" alt="Conservation Framing Example">
+                </div>
+            </div>
+
+            <div class="about-content-wrapper">
+
+                <section class="about-block">
+                    <span class="section-label">Options</span>
+                    <h1 class="about-heading">Conservation Framing</h1>
+                    <p class="about-text-lead">
+                        Fully reversible, acid-free protection for your original artwork.
+                    </p>
+                    <p class="about-text">
+                        We offer true conservation framing designed to protect original artwork over time. Our framing
+                        is fully reversible and acid-free, with a choice of glazing, including Museum Glass, ensuring
+                        your piece stays safe without compromise, preserved for future generations and ready to display.
+                    </p>
+
+                    <div style="margin-top: 2rem;">
+                        <h3 class="about-subheading" style="font-size: 1.5rem;">Pricing</h3>
+                        <p class="about-text" style="font-weight: 600; font-size: 1.25rem;">+$140.00 (24" x 30")</p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="global-footer-container"></div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <form id="contact-form" class="contact-form">
+                <h2>Contact Us</h2>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <input type="hidden" name="subject" value="Inquiry from Framing Page">
+                    <textarea rows="5" required placeholder="How can we help?"></textarea>
+                </div>
+                <div class="g-recaptcha" data-sitekey="6Le131AsAAAAAG8ekJDmdbz27B_3ettGA_QYeCfi"
+                    style="margin-bottom: 1.5rem;"></div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+</body>
+
+</html>
