@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <!-- Col 1: Address & Contact -->
                     <div class="footer-col">
                         <h4>Artbeat Studio</h4>
-                        <p>246 Coronation Dr.</p>
-                        <p>Scarborough, ON M1E 2J4</p>
+                        <p>Toronto East</p>
+                        <p>Ontario, Canada</p>
                         <br>
                         <a href="mailto:lemoralexis@gmail.com">Romel@artbeat.ca</a>
                         <a href="tel:+14378558660">(+1) 437 855 8660</a>
