@@ -164,7 +164,7 @@ img {
 
 /* Hero Section - Static Typographic */
 .hero-section {
-    padding: 8rem 0 6rem;
+    padding: 3rem 0 6rem;
     text-align: center;
     opacity: 0;
     animation: var(--fade-entry);
@@ -181,6 +181,165 @@ img {
     font-size: 3.5rem;
     font-weight: 600;
     letter-spacing: -1px;
+}
+
+/* Hero Slideshow - Infinite Fade */
+.hero-slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.slideshow-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    animation: heroFade 35s infinite;
+}
+
+/* Stagger each image's animation - 7 images, ~5s per image */
+.slideshow-image:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slideshow-image:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.slideshow-image:nth-child(3) {
+    animation-delay: 10s;
+}
+
+.slideshow-image:nth-child(4) {
+    animation-delay: 15s;
+}
+
+.slideshow-image:nth-child(5) {
+    animation-delay: 20s;
+}
+
+.slideshow-image:nth-child(6) {
+    animation-delay: 25s;
+}
+
+.slideshow-image:nth-child(7) {
+    animation-delay: 30s;
+}
+
+@keyframes heroFade {
+    0% {
+        opacity: 0;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    14% {
+        opacity: 1;
+    }
+
+    17% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Hero Lightbox - Dark Mode Gallery */
+.hero-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero-lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    padding: 1rem;
+    z-index: 10;
+}
+
+.lightbox-arrow:hover {
+    opacity: 1;
+}
+
+.lightbox-prev {
+    left: 2rem;
+}
+
+.lightbox-next {
+    right: 2rem;
+}
+
+.lightbox-image-container {
+    max-width: 80vw;
+    max-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-image-container img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox-image-container img.visible {
+    opacity: 1;
 }
 
 /* Gallery Grid */
@@ -317,14 +476,39 @@ img {
 .footer-bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: 2rem;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     font-size: 0.8rem;
 }
 
+.footer-socials {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+}
+
+.footer-socials a {
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+}
+
+.footer-socials a:hover {
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.footer-credits {
+    flex: 1;
+    text-align: center;
+}
+
 .footer-policies {
     display: flex;
     gap: 1.5rem;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 /* Keyframes */
@@ -348,6 +532,12 @@ img {
 }
 
 @media (max-width: 768px) {
+
+    .hero-slideshow {
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+        margin-bottom: 2rem;
+    }
 
     .hero-title,
     .hero-subtitle {
@@ -375,6 +565,25 @@ img {
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-credits {
+        order: -1;
+    }
+
+    .footer-policies {
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .product-layout {
@@ -456,6 +665,7 @@ img {
 /* Thumbnails */
 .product-thumbnails {
     display: flex;
+    flex-direction: row-reverse;
     gap: 1rem;
     margin-top: 1.5rem;
     justify-content: center;

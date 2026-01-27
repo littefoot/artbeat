@@ -145,14 +145,12 @@ function renderProduct(product) {
             { id: 'artwork', icon: product.images[0], label: 'Artwork' }
         ];
 
-        // Initialize Framed State by default if it's first
-        if (views[0].id === 'framed') {
-            wrapper.classList.add('mode-framed');
-        }
+        // Artwork is default (second in array, but first visually due to CSS row-reverse)
 
         views.forEach((view, index) => {
             const thumb = document.createElement('div');
-            thumb.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+            // Artwork (index 1) is active by default
+            thumb.className = `thumbnail ${index === 1 ? 'active' : ''}`;
             thumb.innerHTML = `<img src="${view.icon}" alt="${view.label}">`;
 
             thumb.addEventListener('click', () => {

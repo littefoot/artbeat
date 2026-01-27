@@ -38,11 +38,32 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
+            <!-- Hero Slideshow -->
+            <div class="hero-slideshow" id="heroSlideshow" style="cursor: pointer;">
+                <img src="assets/slideshow-01.webp" alt="Art in a Light Foyer" class="slideshow-image">
+                <img src="assets/slideshow-02.webp" alt="Caribbean Portrait Gallery" class="slideshow-image">
+                <img src="assets/slideshow-03.webp" alt="Geometric Abstract Gallery" class="slideshow-image">
+                <img src="assets/slideshow-04.webp" alt="Couple Dancing Art" class="slideshow-image">
+                <img src="assets/slideshow-05.webp" alt="Child in Warmly Lit Room" class="slideshow-image">
+                <img src="assets/slideshow-06.webp" alt="Red Shoes Gallery" class="slideshow-image">
+                <img src="assets/slideshow-07.webp" alt="Man on Bike Zen Desk" class="slideshow-image">
+            </div>
+
             <h2 class="hero-title">Home is Where the Art is</h2>
             <h1 class="hero-subtitle">Urban Classic Art Store</h1>
 
         </div>
     </section>
+
+    <!-- Hero Lightbox -->
+    <div id="hero-lightbox" class="hero-lightbox">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" aria-label="Previous">&#10094;</button>
+        <div class="lightbox-image-container">
+            <img id="lightbox-image" src="" alt="Gallery Image">
+        </div>
+        <button class="lightbox-arrow lightbox-next" aria-label="Next">&#10095;</button>
+    </div>
 
     <!-- Gallery Grid -->
     <section class="gallery-section">
